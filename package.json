@@ -19,6 +19,6 @@
   "dependencies": {
     "ar-drone": "^0.3.3",
     "keypress": "^0.2.1",
-    "myojs": "^0.8.7"
+    "myo": "^1.5.0"
   }
 }
