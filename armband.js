@@ -47,9 +47,9 @@ var getAngles = function(orientation) {
 };
 
 console.log("begin");
-
-myMyo.on('connect', function() {
+myMyo.on('connected', function() {
     console.log("connected");
+    myMyo.setLockingPolicy('none');
 });
 
 
@@ -74,7 +74,7 @@ myMyo.on('pose', function(pose_name, edge) {
         } 
 
         else if(pose_name === 'fingers_spread') {
-            myMyo.orientation();
+            myMyo.zeroOrientation();
             console.log("position reset");
         }
     }
@@ -85,11 +85,11 @@ myMyo.on('orientation', function(frame) {
     if (take_command === true) {
         curAngles = getAngles(frame);
 
-        var pitchPercent = Math.abs(curAngles.pitch) / 10;
-        var yawPercent = Math.abs(curAngles.yaw) / 10;
-        //var rollPercent = newAngles.yaw / ; // roll movements are less sensitive than others
+        var pitchAbs = Math.abs(curAngles.pitch);
+        var yawAbs = Math.abs(curAngles.yaw);
+        var rollAbs = Math.abs(curAngles.roll);
 
-        if (Math.abs(curAngles.pitch) > 2 && pitchPercent > yawPercent) {
+        if (pitchAbs * 10 > 1 && pitchAbs > yawAbs) {
             if (curAngles.pitch > 0) {
                 console.log("down");
                 client.down(pitchSpeed);
@@ -97,8 +97,9 @@ myMyo.on('orientation', function(frame) {
                 console.log("up");
                 client.up(pitchSpeed);
             }
-        } else if (Math.abs(curAngles.yaw) > 2 && yawPercent > pitchPercent) {
-            if (curAngles.yaw - zeroPos.yaw > 0) {
+          
+        } else if (yawAbs * 10 > 1 && yawAbs > pitchAbs) {
+            if (curAngles.yaw > 0) {
                 console.log("back");
                 client.back(yawSpeed);
             } else {
@@ -114,7 +115,7 @@ myMyo.on('orientation', function(frame) {
                 client.left(rollSpeed);
             }
         } else {
-            console.log("stop");
+            // console.log("stop");
             client.stop();
         }
     }
