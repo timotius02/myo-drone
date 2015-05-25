@@ -24,3 +24,4 @@ npm install
 * Move Hand Right: Drone moves forward
 
 ###License:
+MIT © [Timotius Sitorus](http://timsitorus.com/)
