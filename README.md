@@ -7,7 +7,7 @@ To run script, clone repo and run:
 npm install
 ```
 ###Keys:
-* ctrl + 'c' : exits the program
+* 'ctrl+c' : exits the program
 * 'l' : lands the drone and locks armband
 * 'd' : disables emergency
 
