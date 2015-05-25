@@ -8,9 +8,9 @@ To run script, clone repo and run:
 npm install
 ```
 ###Keys:
-* 'ctrl+c' : exits the program
-* 'l' : lands the drone and locks armband
-* 'd' : disables emergency
+* "ctrl+c" : exits the program
+* "l" : lands the drone and locks armband
+* "d" : disables emergency
 
 ###Gestures:
 * *Fist*: takeoff
@@ -22,3 +22,5 @@ npm install
 * Twist Left/Right: Drone moves left/right
 * Move Hand Left: Drone moves back
 * Move Hand Right: Drone moves forward
+
+###License:
