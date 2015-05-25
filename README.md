@@ -1,5 +1,6 @@
 #Myo-Drone
 A Node.js script that allows the Myo armband to control the AR Drone.
+
 Requirements: [Myo Connect](https://developer.thalmic.com/downloads)
 
 To run script, clone repo and run:
